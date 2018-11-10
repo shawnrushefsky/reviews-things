@@ -5,9 +5,8 @@ jobs:
       - image: cibuilds/hugo:latest
     working_directory: ~/hugo
     environment:
-      HUGO_BUILD_DIR: public/site
+      HUGO_BUILD_DIR: public
     steps:
-
       # install git
       - run: apk update && apk add git
 
