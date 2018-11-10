@@ -41,8 +41,12 @@ jobs:
           at: /tmp/workspace
 
       - run:
+          name: Create keyfile from env
+          command: echo $GCLOUD_SERVICE_KEY >> /tmp/key.json
+
+      - run:
           name: Set up gcloud
-          command: gcloud auth activate-service-account --key-file="${GCLOUD_SERVICE_KEY}" && gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+          command: gcloud auth activate-service-account --key-file=/tmp/key.json && gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
     
       - run:
           name: Upload to Storage Bucket
