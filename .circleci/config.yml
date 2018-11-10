@@ -50,7 +50,7 @@ jobs:
     
       - run:
           name: Upload to Storage Bucket
-          command: gsutil cp -r /tmp/workspace/ gs://www.shawnreviewsthings.com
+          command: gsutil cp -r /tmp/workspace/site/. gs://www.shawnreviewsthings.com
 
 workflows:
   version: 2
