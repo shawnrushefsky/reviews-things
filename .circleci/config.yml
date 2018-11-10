@@ -40,6 +40,12 @@ jobs:
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: /tmp/workspace
+
+      - run:
+        name: Set up gcloud
+        command: |
+          echo $GCLOUD_SERVICE_KEY | base64 --decode | sudo gcloud auth activate-service-account --key-file=-
+          sudo gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
     
       - run:
         name: Echo
