@@ -26,8 +26,8 @@ jobs:
       #       --empty-alt-ignore --disable-external
 
       - run:
-        name: What did we make
-        command: ls ~/hugo/public
+          name: What did we make
+          command: ls ~/hugo/public
 
       - persist_to_workspace:
           root: public
@@ -45,14 +45,14 @@ jobs:
           at: /tmp/workspace
 
       - run:
-        name: Set up gcloud
-        command: |
+          name: Set up gcloud
+          command: |
           echo $GCLOUD_SERVICE_KEY | base64 --decode | sudo gcloud auth activate-service-account --key-file=-
           sudo gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
     
       - run:
-        name: Upload to Storage Bucket
-        command: gsutil cp -r /tmp/workspace gs://www.shawnreviewsthings.com
+          name: Upload to Storage Bucket
+          command: gsutil cp -r /tmp/workspace gs://www.shawnreviewsthings.com
 
 workflows:
   version: 2
