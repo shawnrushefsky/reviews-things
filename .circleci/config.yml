@@ -25,10 +25,6 @@ jobs:
       #       htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
       #       --empty-alt-ignore --disable-external
 
-      - run:
-          name: What did we make
-          command: ls ~/hugo/public
-
       - persist_to_workspace:
           root: public
           paths:
@@ -46,7 +42,7 @@ jobs:
 
       - run:
           name: Set up gcloud
-          command: echo $GCLOUD_SERVICE_KEY | base64 --decode | sudo gcloud auth activate-service-account --key-file=- && sudo gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+          command: echo $GCLOUD_SERVICE_KEY | base64 --decode | gcloud auth activate-service-account --key-file=- && gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
     
       - run:
           name: Upload to Storage Bucket
