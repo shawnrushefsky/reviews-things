@@ -5,7 +5,7 @@ jobs:
       - image: cibuilds/hugo:latest
     working_directory: ~/hugo
     environment:
-      HUGO_BUILD_DIR: public
+      HUGO_BUILD_DIR: public/site
     steps:
 
       # install git
@@ -26,8 +26,15 @@ jobs:
       #       htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
       #       --empty-alt-ignore --disable-external
 
+      -run:
+        name: What did we make
+        command: ls ~/hugo/public
+
       - persist_to_workspace:
-          root: ~/hugo/public
+          root: public
+          paths:
+            - site
+          
 
       # `deploy` step: identical to a `run` step, but uses only one container:
       # https://circleci.com/docs/2.0/configuration-reference/#deploy 
