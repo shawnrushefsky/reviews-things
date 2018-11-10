@@ -20,11 +20,11 @@ jobs:
       # build with Hugo
       - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
  
-      - run:
-          name: test our generated HTML files
-          command: |
-            htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
-            --empty-alt-ignore --disable-external
+      # - run:
+      #     name: test our generated HTML files
+      #     command: |
+      #       htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
+      #       --empty-alt-ignore --disable-external
 
       - persist_to_workspace:
           root: ~/hugo
@@ -48,8 +48,8 @@ jobs:
           sudo gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
     
       - run:
-        name: Echo
-        command: echo ls /tmp/workspace
+        name: Upload to Storage Bucket
+        command: gsutil cp -r /tmp/workspace gs://www.shawnreviewsthings.com
 
 workflows:
   version: 2
