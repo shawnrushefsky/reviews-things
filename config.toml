@@ -1,4 +1,33 @@
-baseURL = "http://example.org/"
+baseURL = "https://www.shawnreviewsthings.org/"
 languageCode = "en-us"
 title = "Shawn Reviews Things"
 theme = "mediumish"
+enableEmoji = true
+copyright = "Shawn Rushefsky - All rights reserved"
+
+[params]
+    description = "I have a lot of opinions."
+
+[params.author]
+    name = "Shawn Rushefsky"
+    thumbnail = "/images/shawn-profile.JPG"
+    description = "A grump old man in a grumpy young man's body."
+
+[params.index]
+  picture = "/images/shawn-profile.JPG"
+  title = "Shawn Rushefsky"
+  subtitle = "I have a lot of opinions."
+  mdtext = "I review all kinds of things. Gadgets, restuarants, hotels, open source projects, enterprise services, dogs, etc."
+  alertbar = false
+
+[[menu.main]]
+    name = "Reviews"
+    identifier = "reviews"
+    weight = 200
+    url = "/reviews"
+
+[[menu.main]]
+    name = "About Me"
+    identifier = "about"
+    weight = 201
+    url = "/"
