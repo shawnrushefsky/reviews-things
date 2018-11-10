@@ -21,10 +21,10 @@ copyright = "Shawn Rushefsky - All rights reserved"
   alertbar = false
 
 [[menu.main]]
-    name = "Reviews"
-    identifier = "reviews"
+    name = "Blog"
+    identifier = "blog"
     weight = 200
-    url = "/reviews"
+    url = "/blog"
 
 [[menu.main]]
     name = "About Me"
