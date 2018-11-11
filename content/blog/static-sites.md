@@ -1,10 +1,10 @@
 ---
 title: "Building and Deploying Static Sites with Hugo, Circle CI, and Google Cloud Storage"
-date: 2018-11-10T12:45:18-06:00
-draft: true
+date: 2018-11-11T12:35:18-06:00
+draft: false
 ---
 
-I built this website because I wanted to play with a static site builder, and set up a pipeline to easily deploy it to the web. I'll go over the tools I used, why I chose them, and all of the steps I took with each. 
+I built this website because I wanted to play with a static site builder, and set up a pipeline to easily deploy it to the web. I'll go over the tools I used, why I chose them, and all of the steps I took with each. While anyone familiar with markdown could probably make their way through this tutorial, it is definitely aimed at developers who want a simple but developer-friendly workflow for administering a website.
 
 ## Tools
 
@@ -191,6 +191,54 @@ I'm aware there are other code repositories, and any git-compatible repository y
 
 Commit all the changes you've made to your site, and publish your repository. If you make your repository "Public", it is free to store it on GitHub, and free to use CircleCI to build and deploy it. If you prefer for it to be private, you can pay a small monthly fee ($7/mo for unlimited private repos on GitHub).
 
+## Google Cloud Storage
+
+[Google Cloud Storage](https://cloud.google.com/storage/) is a cloud-based multi-region blob storage similar to [Amazon S3](https://aws.amazon.com/s3/).
+
+### Why Google Cloud Storage
+
+My initial instinct was to use S3, but it turns out I owed AWS $60, and while I was happy to pay it, it was going to take a day or so to restore access to my account.
+
+Next I went to Azure, because we use them at work, and their bucket storage is a service I hadn't had a chance to play with yet. Alas, my work uses single sign-on, so it was going to be a big hassle to log in with anything other than my work credentials, and this is definitely a personal project.
+
+So, by process of elimination, I ended up with Google Cloud Storage. All of these services are fairly similar, and fairly cost comparable, so ultimately it doesn't really matter what you choose here.
+
+### What to Do
+
+This is probably the most complex part, but it's really not too bad, and you can definitely do it.
+
+1. Create a google account if you somehow don't have one already
+2. Navigate to the [storage console](https://console.cloud.google.com/storage/)
+3. Create a new project. Mine is called "Shawn Reviews Things".
+4. You will need to authorize payments in order to create a Storage bucket. Go ahead and follow their directions for doing so. Review their prices if you need to, but it's extremely cheap ($0.026/gb/mo).
+5. Create a new Bucket. 
+    1. Name your bucket "www.yoursiteurl.com". It's important to note that you do need to own this URL already at this point. I used [Namecheap](https://www.namecheap.com) to purchase my domain name for about $9/year.
+    2. Choose "Multi-Regional" for your Storage Class. This will make all your files available in multiple regions simultaneously, for better durability, availability, and read performance.
+    3. I chose "United States" for location, because that's where I live. You could choose something else if you want.
+    4. Click Create
+    5. At this point, it's going to ask you to verify that you own your domain name by adding a `TXT Record` to your DNS. They provide instructions for doing this that are specific to your domain name provider. Sometimes this verification can take a while, but it was essentially real-time for me in this case.
+    6. Congrats! You made your bucket.
+6. Create a new User for Circle CI to use
+    1. Go to the [Service Account Console](https://console.cloud.google.com/iam-admin/serviceaccounts)
+    2. Click "Create Service Account"
+    3. Name your new account "circle-ci". This will make it easy to remember what this account is for.
+    4. Add a description if you want more information, then click "Create"
+    5. Select the role "Storage Object Admin" for your project. This will let this new Service User have access to create, modify, and destroy resources inside of your storage bucket. It's important to have the full access, because your files will be overriden when changes occur.
+    6. Click "Continue".
+    7. Give yourself access to this role, and then click "Create Key".
+    8. Choose the "JSON" option, which should be selected by default, and click "Create". This will download the key to your computer as a JSON file. Remember where you put it, because you're going to need it again later.
+7. Set up access permissions for your bucket
+    1. From the [Storage Browser](https://console.cloud.google.com/storage/browser), you should be able to see your new bucket. 
+    2. Click the menu button for your bucket, located on on the far right of its row.
+    3. Click "Edit Bucket Permissions"
+    4. Under the **Add Members** section, type "allUsers", and select the role "Storage Object Viewer". This will set the contents of your bucket to be publically readable. This is important if you want people other than you to be able to see your website. Don't worry, they won't have write access.
+8. Configure the Bucket to be a Website
+    1. Click the menu button for your bucket
+    2. Click "Edit website configuration"
+    3. For Main page, put "index.html"
+    4. For 404 (Not Found) page, put "404.html"
+
+
 ## Circle CI
 
 [Circle CI](https://circleci.com) is a [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration) and [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment) platform. The idea behind such platforms is that you can automatically run jobs every time code is committed to GitHub, or similar code repository. Jobs can include testing, builds, and deployments.
@@ -222,7 +270,9 @@ Go to [Circle CI](https://circleci.com) and click Sign Up. This is easiest if yo
 
 Back in your editor, make a new directory in the repo called `.circleci`, and create a file in that directory called `config.yml`. This file is tells Circle CI what to do with your code on new commits.  In our case, we are going to describe 2 `jobs`: `build`, and `deploy`. We're also going to define a `workflow` that connects those `jobs`.
 
-First, we set up some boilerplate stuff in the configuration:
+##### Build Job
+
+We're going to start by defining the build job.
 
 ```yml
 version: 2
@@ -236,6 +286,267 @@ jobs:
       HUGO_BUILD_DIR: public/site
 ```
 
-This means our build environment is going to use the docker image [cibuilds/hugo](https://hub.docker.com/r/cibuilds/hugo/), which comes with all the hugo commands we need to build our project.
+This means our build environment is going to use the docker image [cibuilds/hugo](https://hub.docker.com/r/cibuilds/hugo/), which comes with all the hugo and git commands we need to build our project.
 
-However, this image is based on alpine linux, and is missing 
+We're going to be cloning our repo down into `~/hugo`, and building the site into `~/hugo/public/site`
+
+Next, we define the steps to take for this job
+
+```yml
+    steps:
+      # checkout the repository
+      - checkout
+
+      # install git submodules for managing third-party dependencies
+      - run: git submodule sync && git submodule update --init
+
+      # build with Hugo
+      - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
+ 
+      - persist_to_workspace:
+          root: public
+          paths:
+            - site
+```
+
+This clones down our repo, installs any gitmodules, like our theme, and then builds the site. When you set `HUGO_ENV=production`, it will ignore any content with the flag `draft: true` at the top. Set that to `draft: false` when you're ready to release a new piece of content.
+
+Finally, it persists our built site to the the `workspace`, which is a concept Circle CI gives us to persist data between different jobs.
+
+`config.yml` should look like this at this point:
+
+```yml
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: cibuilds/hugo:latest
+    working_directory: ~/hugo
+    environment:
+      HUGO_BUILD_DIR: public/site
+    steps:
+      # checkout the repository
+      - checkout
+
+      # install git submodules for managing third-party dependencies
+      - run: git submodule sync && git submodule update --init
+
+      # build with Hugo
+      - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
+ 
+      - persist_to_workspace:
+          root: public
+          paths:
+            - site
+```
+
+Go ahead and commit and push this file to your repo at this point.
+
+Back in the Circle CI interface, click "Start Building". This will create your project and run the "build" job.
+
+##### Project Settings
+
+At this point we need to add a couple environment variables to our project so that our Deploy job can make authorized requests to our GCS (Google Cloud Storage) Bucket.
+
+You should be in the "Jobs" panel at this point, and you'll see your project there, with a job status for the "master" branch. Click the gear next to your project title to go to your project settings.
+
+Navigate to "Environment Variables".
+
+You'll need to add 3 variables:
+
+1. `GCLOUD_SERVICE_KEY` should be set to the full text of that JSON key you downloaded earlier
+2. `GOOGLE_PROJECT_ID` should be set to the ID of your project, which you can find from the Google Cloud Console. For me it was "shawn-reviews-things", because the plain name was "Shawn Reviews Things".
+4. `BUCKET_NAME` should be the name of the bucket you made in GCS. For me it was "www.shawnreviewsthings.com"
+
+Next, go to Advanced Settings, and turn on "Only build pull requests". This will prevent circle from building every commit to every branch, and instead it will only build commits to master, and pull requests.
+
+##### Deploy Job
+
+Ok, now that that is configured, we can go back to our editor and define our "deploy" job.
+
+Our "build" job builds the site, and persists the compiled final version to the workspace. Now we need to pull that data into our deploy container.
+
+```yml
+  deploy:
+    docker:
+      - image: google/cloud-sdk
+    steps:
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /tmp/workspace
+```
+
+We're going to use the Docker image [google/cloud-sdk](https://hub.docker.com/r/google/cloud-sdk/), because it has all the dependencies we need to upload our project to our Google Cloud Storage Bucket.
+
+We attach the workspace at `/tmp/workspace`, which means our site will be the contents of `/tmp/workspace/site/`
+
+We need to put our JSON key back in a file that the google cli can use:
+
+```yml
+      - run:
+          name: Create keyfile from env
+          command: echo $GCLOUD_SERVICE_KEY >> /tmp/key.json
+```
+
+Next we need to set up the cli to use our configuration:
+
+```yml
+      - run:
+          name: Set up gcloud
+          command: gcloud auth activate-service-account --key-file=/tmp/key.json && gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+```
+
+Finally, we can upload our site to the bucket:
+
+```yml
+      - run:
+          name: Upload to Storage Bucket
+          command: gsutil cp -r /tmp/workspace/site/. gs://${BUCKET_NAME}
+```
+
+At this point, your `config.yml` should look like this:
+
+```yml
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: cibuilds/hugo:latest
+    working_directory: ~/hugo
+    environment:
+      HUGO_BUILD_DIR: public/site
+    steps:
+      # checkout the repository
+      - checkout
+
+      # install git submodules for managing third-party dependencies
+      - run: git submodule sync && git submodule update --init
+
+      # build with Hugo
+      - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
+ 
+      - persist_to_workspace:
+          root: public
+          paths:
+            - site
+
+  deploy:
+    docker:
+      - image: google/cloud-sdk
+    steps:
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /tmp/workspace
+
+      - run:
+          name: Create keyfile from env
+          command: echo $GCLOUD_SERVICE_KEY >> /tmp/key.json
+
+      - run:
+          name: Set up gcloud
+          command: gcloud auth activate-service-account --key-file=/tmp/key.json && gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+    
+      - run:
+          name: Upload to Storage Bucket
+          command: gsutil cp -r /tmp/workspace/site/. gs://${BUCKET_NAME}
+```
+
+##### Define A Workflow
+
+Now that you have defined your jobs, it's time to define how they go together.
+
+Add this to the end of your `config.yml`:
+
+```yml
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+```
+
+What this is doing is creating a workflow called `build-deploy` that contains 2 jobs, `build` and `deploy`.
+
+It specifies that `deploy` requires the success of `build`, and should only run for the `master` branch of your repo. This will keep expiriments in other branches from making their way to your live site, until you merge them into `master`.
+
+All together, you config looks like:
+
+```yml
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: cibuilds/hugo:latest
+    working_directory: ~/hugo
+    environment:
+      HUGO_BUILD_DIR: public/site
+    steps:
+      # checkout the repository
+      - checkout
+
+      # install git submodules for managing third-party dependencies
+      - run: git submodule sync && git submodule update --init
+
+      # build with Hugo
+      - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
+ 
+      - persist_to_workspace:
+          root: public
+          paths:
+            - site
+
+  deploy:
+    docker:
+      - image: google/cloud-sdk
+    steps:
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /tmp/workspace
+
+      - run:
+          name: Create keyfile from env
+          command: echo $GCLOUD_SERVICE_KEY >> /tmp/key.json
+
+      - run:
+          name: Set up gcloud
+          command: gcloud auth activate-service-account --key-file=/tmp/key.json && gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+    
+      - run:
+          name: Upload to Storage Bucket
+          command: gsutil cp -r /tmp/workspace/site/. gs://${BUCKET_NAME}
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+```
+
+Commit these changes to your repo, and push.
+
+Back in your Circle CI Jobs interface, you should be able to see your jobs run, first `build`, then `deploy`, if you've done everything correctly.
+
+Once `deploy` has succeeded, you should be able to navigate to your [URL](www.shawnreviewsthings.com) and see your site.
+
+## Conclusions
+
+If you're like me and you prefer to write everything in markdown, and have it work without a lot of fuss, this combo of `Static Site Generator + CI/CD + Bucket Storage` is really nice. I can use my preferred editor, [VS Code](https://code.visualstudio.com/) to do all of my editing, and my site is automatically deployed when I merge new content into master. It's a workflow that I'm already comfortable and familiar with, and provides a lot of convenience.
+
+Beyond the convenience, it's also incredibly cost effective, especially if you keep your site repo public on github. All in, this project is costing me <$.80/mo, and that includes domain name, hosting, bandwidth, everything.
+
+While I don't think it's very likely to occur, this is also a highly scalable setup. GitHub provides an efficient mechanism for very large numbers of contributors to submit new content for a site like this, and Circle CI will automatically build and deploy these changes as they happen. GCS Buckets offer exceptional data durability, and very good performance for serving static sites like this. There's no servers to maintain, and I'm only billed for the amount of data I actually store, and the amount of traffic I actually serve. In theory, a site like this could grow to serve hundreds or thousands of contributors and millions of readers without needing any major infrastructure overhaul.
