@@ -6,6 +6,7 @@ enableEmoji = true
 copyright = "Shawn Rushefsky - All rights reserved"
 pygmentsCodeFences = true
 disqusShortname = "shawnreviewsthings"
+googleAnalytics = "UA-100012560-2"
 
 [params]
     description = "I have a lot of opinions."
