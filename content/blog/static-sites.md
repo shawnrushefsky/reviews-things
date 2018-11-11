@@ -151,11 +151,11 @@ I added this page with
 hugo new blog/static-sites.md
 ```
 
-Which creates a new file at `content/blog/static-sites.md`
+Which creates a new file at `content/blog/static-sites.md`.
 
-And then wrote this blog post.
+This post comes from that file.
 
-You can see the original markdown file [here](https://github.com/shawnrushefsky/reviews-things/blob/master/content/reviews/Hugo.md)
+You can see the original markdown file [here](https://github.com/shawnrushefsky/reviews-things/blob/master/content/blog/static-sites.md)
 
 If you go back to your site in your browser, you'll see your site working. You can click links in the menu, and they'll take you to a page with entries of that type. For instance, in this menu block:
 
@@ -550,6 +550,6 @@ Once `deploy` has succeeded, you should be able to navigate to your [URL](www.sh
 
 If you're like me and you prefer to write everything in markdown, and have it work without a lot of fuss, this combo of `Static Site Generator + CI/CD + Bucket Storage` is really nice. I can use my preferred editor, [VS Code](https://code.visualstudio.com/) to do all of my editing, and my site is automatically deployed when I merge new content into master. It's a workflow that I'm already comfortable and familiar with, and provides a lot of convenience.
 
-Beyond the convenience, it's also incredibly cost effective, especially if you keep your site repo public on github. All in, this project is costing me <$.80/mo, and that includes domain name, hosting, bandwidth, everything.
+Beyond the convenience, it's also incredibly cost effective, especially if you keep your site repo public on github. All in, this project is costing me less than $0.80/mo, and that includes domain name, hosting, bandwidth, everything.
 
 While I don't think it's very likely to occur, this is also a highly scalable setup. GitHub provides an efficient mechanism for very large numbers of contributors to submit new content for a site like this, and Circle CI will automatically build and deploy these changes as they happen. GCS Buckets offer exceptional data durability, and very good performance for serving static sites like this. There's no servers to maintain, and I'm only billed for the amount of data I actually store, and the amount of traffic I actually serve. In theory, a site like this could grow to serve hundreds or thousands of contributors and millions of readers without needing any major infrastructure overhaul.
