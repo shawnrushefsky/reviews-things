@@ -11,11 +11,11 @@ pygmentsCodeFences = true
 
 [params.author]
     name = "Shawn Rushefsky"
-    thumbnail = "/images/shawn-profile.JPG"
+    thumbnail = "/images/shawn-profile.jpg"
     description = "A grump old man in a grumpy young man's body."
 
 [params.index]
-  picture = "/images/shawn-profile.JPG"
+  picture = "/images/shawn-profile.jpg"
   title = "Shawn Rushefsky"
   subtitle = "I have a lot of opinions."
   mdtext = "I review all kinds of things. Gadgets, restuarants, hotels, open source projects, enterprise services, dogs, etc."
