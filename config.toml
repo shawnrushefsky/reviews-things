@@ -28,6 +28,12 @@ googleAnalytics = "UA-100012560-2"
   alertbar = false
 
 [[menu.main]]
+    name = "Reviews"
+    identifier = "reviews"
+    weight = 200
+    url = "/reviews"
+
+[[menu.main]]
     name = "Blog"
     identifier = "blog"
     weight = 200
