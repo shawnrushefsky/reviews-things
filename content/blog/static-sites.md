@@ -95,6 +95,7 @@ theme = "mediumish"
 enableEmoji = true
 copyright = "Shawn Rushefsky - All rights reserved"
 pygmentsCodeFences = true # This enables syntax highlighting in code blocks like this one
+comments = true
 
 [params]
     description = "I have a lot of opinions."
