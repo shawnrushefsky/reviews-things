@@ -19,7 +19,7 @@ disqusShortname = "shawnreviewsthings"
   picture = "/images/shawn-profile.jpg"
   title = "Shawn Rushefsky"
   subtitle = "I have a lot of opinions."
-  mdtext = "I review all kinds of things. Gadgets, restuarants, hotels, open source projects, enterprise services, dogs, etc."
+  mdtext = "I review all kinds of things. Gadgets, restuarants, hotels, open source projects, enterprise services, dogs, etc. This site is automatically built from [this repo.](https://github.com/shawnrushefsky/reviews-things)"
   alertbar = false
 
 [[menu.main]]

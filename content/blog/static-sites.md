@@ -6,7 +6,7 @@ tags: ['Static Sites', 'CI-CD', 'Circle CI', 'Cloud', 'Google Cloud Storage', 'M
 comments: true
 ---
 
-I built this website because I wanted to play with a static site builder, and set up a pipeline to easily deploy it to the web. I'll go over the tools I used, why I chose them, and all of the steps I took with each. While anyone familiar with markdown could probably make their way through this tutorial, it is definitely aimed at developers who want a simple but developer-friendly workflow for administering a website.
+I built this website because I wanted to play with a static site builder, and set up a pipeline to easily deploy it to the web. I'll go over the tools I used, why I chose them, and all of the steps I took with each. While anyone familiar with markdown could probably make their way through this tutorial, it is definitely aimed at developers who want a simple but developer-friendly workflow for administering a website. You can find the full project [here](https://github.com/shawnrushefsky/reviews-things).
 
 ## Tools
 
