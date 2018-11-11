@@ -7,9 +7,6 @@ jobs:
     environment:
       HUGO_BUILD_DIR: public/site
     steps:
-      # install git
-      # - run: apk update && apk add git
-
       # checkout the repository
       - checkout
 
@@ -19,12 +16,6 @@ jobs:
       # build with Hugo
       - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
  
-      # - run:
-      #     name: test our generated HTML files
-      #     command: |
-      #       htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
-      #       --empty-alt-ignore --disable-external
-
       - persist_to_workspace:
           root: public
           paths:
