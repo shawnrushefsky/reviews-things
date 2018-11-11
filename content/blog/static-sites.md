@@ -87,7 +87,7 @@ And then navigate to http://localhost:1313 to see it in action. At this point yo
 My final `config.toml` looks like:
 
 ```toml
-baseURL = "https://www.shawnreviewsthings.com"
+baseURL = "http://www.shawnreviewsthings.com"
 languageCode = "en-us"
 title = "Shawn Reviews Things"
 theme = "mediumish"
