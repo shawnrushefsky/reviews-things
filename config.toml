@@ -5,6 +5,7 @@ theme = "mediumish"
 enableEmoji = true
 copyright = "Shawn Rushefsky - All rights reserved"
 pygmentsCodeFences = true
+disqusShortname = "shawnreviewsthings"
 
 [params]
     description = "I have a lot of opinions."
