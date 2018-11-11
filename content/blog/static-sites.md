@@ -217,7 +217,10 @@ This is probably the most complex part, but it's really not too bad, and you can
     3. I chose "United States" for location, because that's where I live. You could choose something else if you want.
     4. Click Create
     5. At this point, it's going to ask you to verify that you own your domain name by adding a `TXT Record` to your DNS. They provide instructions for doing this that are specific to your domain name provider. Sometimes this verification can take a while, but it was essentially real-time for me in this case.
-    6. Congrats! You made your bucket.
+    6. While you're in your DNS settings, make a new `CNAME Record`:
+        - Host: "www"
+        - Value: "c.storage.googleapis.com." (Note the trailing `.` there. It's important)
+    7. Congrats! You made your bucket.
 6. Create a new User for Circle CI to use
     1. Go to the [Service Account Console](https://console.cloud.google.com/iam-admin/serviceaccounts)
     2. Click "Create Service Account"
