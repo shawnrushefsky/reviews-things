@@ -42,15 +42,45 @@ It is located high-center on the back of the phone on the Pixel 3: ![Pixel 3 Bac
 
 I this is better for a few reasons.
 
-1. The fingerprint sensor no longer takes up precious front-of-phone real-estate, and as a result the Pixel 3 has a much larger screen, even though the total dimensions of the device are extremely similar.
+* The fingerprint sensor no longer takes up precious front-of-phone real-estate, and as a result the Pixel 3 has a much larger screen, even though the total dimensions of the device are extremely similar.
 
-2. I find it more comfortable to find the rear fingerprint sensor with my index finger than to adjust my whole grip to hit the front sensor with my thumb.
+>  | iPhone 6s | Pixel 3
+---|-----------|---------
+**Display** | **120mm** | **140mm**
+Height | 138.3mm   | 145.6mm
+Width | 67.1mm    | 68.2mm
+Depth | 7.1mm     | 7.9mm
+Weight | 143g | 148g
 
-3. There is a gesture you can enable that lets you flick your finger over the sensor to pull your notifications down from the top of the screen. This is signficantly more comfortable than the awkward whole hand stretch required otherwise.
+* I find it more comfortable to find the rear fingerprint sensor with my index finger than to adjust my whole grip to hit the front sensor with my thumb.
+
+* There is a gesture you can enable that lets you flick your finger over the sensor to pull your notifications down from the top of the screen. This is signficantly more comfortable than the awkward whole hand stretch required otherwise.
 
 I'd be remiss if I didn't mention that the newest iPhones do not have a fingerprint sensor at all, and instead rely on facial recognition to authenticate users of the device. Personally, I find this creepy as hell, and I prefer an easy-to-use fingerprint sensor to the facial recognition system.
 
 The rear fingerprint sensor isn't all good news though. I will say that it's harder to unlock your phone while it's sitting face-up on a table. With my iPhone, I could just tap the front sensor to unlock the phone, but with the Pixel I either need to pick up the phone or type in my passcode. In practice, this is not that inconvenient because of some software features like Trusted Locations that keep the phone from locking while I'm at home, or while it's on my Pixel Stand.
+
+## Home Screen
+
+## Lock Screen
+
+## Keyboard
+
+## Camera
+
+### Selfie Camera
+
+### Rear-Facing Camera
+
+## Google Photos
+
+## Speakers
+
+## Google Assistant
+
+## Battery Life
+
+## Misc
 
 [usb-adapter]: /images/reviews/pixel3/usb-adapter.jpg
 [iphone-6s]: /images/reviews/pixel3/iphone-6s.jpg

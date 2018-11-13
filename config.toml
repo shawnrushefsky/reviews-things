@@ -30,7 +30,7 @@ googleAnalytics = "UA-100012560-2"
 [[menu.main]]
     name = "Reviews"
     identifier = "reviews"
-    weight = 200
+    weight = 199
     url = "/reviews"
 
 [[menu.main]]
