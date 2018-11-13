@@ -13,6 +13,48 @@ tags: ['Gadgets', 'Phones', 'Google', 'Smartphone', 'AI', 'Android', 'Pixel3']
 * Google Assistant is helpful and intuitive to use
 * If you're in the market for a new flagship smart phone, this is the one you should buy
 
+## Quick Specs
+
+* System-on-a-Chip: [Qualcomm Snapdragon 845](https://en.wikipedia.org/wiki/List_of_Qualcomm_Snapdragon_systems-on-chip#Snapdragon_835,_845_and_850_(2017/18))
+* CPU: 2.5 Ghz + 1.6 Ghz, 64-Bit Octa-Core
+* GPU: [Adreno](https://en.wikipedia.org/wiki/Adreno) 630
+* Memory: 4 GB [LPDDR4X](https://en.wikipedia.org/wiki/Mobile_DDR#LPDDR4X)
+* Storage: 64GB or 128GB (I have the 64gb)
+* Battery: 2915 mAh
+* Display:
+    * Size: 5.5 in (140 mm)
+    * Tech: FHD+ OLED
+    * Resolution: 2160x1080 (443 [ppi](https://en.wikipedia.org/wiki/Pixel_density))
+    * Brightness: 424 [nits](https://en.wikipedia.org/wiki/Candela_per_square_metre)
+    * Glass: [Corning Gorilla Glass 5](https://en.wikipedia.org/wiki/Gorilla_Glass)
+* Rear Camera
+    * Resolution: 12.2 MP
+    * Pixel Size: 1.4 μm
+    * F-Stop: f/1.8
+    * 1080p video at 30/60/120 fps
+    * 720p video at 30/60/240 fps
+    * 4K video at 30 fps
+    * IR laser-assisted autofocus
+    * Optical and electronic image stabilization
+* Front Camera, Lens 1
+    * Resolution: 8 MP
+    * F-Stop: f/1.8
+    * 75º Lens
+    * 1080p/720p/480p video at 30 fps
+* Front Camera, Lens 2
+    * Resolution: 8mp
+    * F-Stop: f/2.2
+    * 97º Wide Angle lens
+    * 1080p/720p/480p video at 30 fps
+* Connectivity
+    * Bluetooth 5.0 + LE w/ AptX HD
+    * Wi-Fi 2.4GHz + 5.0GHz 802.11a/b/g/n/ac
+    * NFC
+    * GPS ([GLONASS](https://en.wikipedia.org/wiki/GLONASS), [Galileo](https://en.wikipedia.org/wiki/Galileo_(satellite_navigation)), [BeiDou](https://en.wikipedia.org/wiki/BeiDou_Navigation_Satellite_System))
+    * USB-C for Power and Data
+    * [Qi](https://en.wikipedia.org/wiki/Qi_(standard)) wireless charging
+* [IP68](https://en.wikipedia.org/wiki/IP_Code) IEC standard 60529 (splash, water, and dust resistant)
+
 ## Preface
 
 I have been using iPhones for about 9 years, starting with the iPhone 3GS in 2009. I have owned an iPhone 3GS, 4, 5s, and 6s. I have 3 MacBook Pros, and am on my second iPad. I owned an Apple Watch for quite a while. I have on many occassions, both public and private, mocked non-Apple products. Needless to say, I have been heavily entangled in the Apple ecosystem. The same goes for my wife Leah, though while I am in general a gadget hound and tech enthusiast, she is really just looking for things to not get in her way, and is fairly averse to change.
