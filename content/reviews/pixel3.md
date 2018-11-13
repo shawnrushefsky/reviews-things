@@ -32,7 +32,7 @@ Besides this, I only needed to manually disable iMessages and Facetime in settin
 
 Leah also completed her transition within the same time frame, and needed no assistance for this.
 
-## First Impressions: Hardware
+## First Impressions
 
 The device itself is very polished, and has a premium feel to it. The two-tone glass back looks and feels very nice. I almost decided to skip putting a case on it, because I really like the appearance of the naked phone.
 
@@ -60,6 +60,28 @@ I'd be remiss if I didn't mention that the newest iPhones do not have a fingerpr
 
 The rear fingerprint sensor isn't all good news though. I will say that it's harder to unlock your phone while it's sitting face-up on a table. With my iPhone, I could just tap the front sensor to unlock the phone, but with the Pixel I either need to pick up the phone or type in my passcode. In practice, this is not that inconvenient because of some software features like Trusted Locations that keep the phone from locking while I'm at home, or while it's on my Pixel Stand.
 
+The device is fast and responsive, and gets identical wifi performance to my laptop (2018 Macbook Pro): 200Mbps down, 25Mbps up (in my office)
+
+## Display
+
+The display is a 5.5 in (140 mm) FHD+ OLED at 443 ppi (2160x1080), and it's really gorgeous. The image appears to sit right on the surface of the screen, not behind a thick pane of glass. The colors are vivid, and images and videos look sharp.
+
+It supports 3 different color profiles:
+
+### 1. Natural
+
+![Natural Colors][natural-colors]
+
+### 2. Boosted
+
+![Boosted Colors][boosted-colors]
+
+### 3. Adaptive
+
+![Adaptive Colors][adaptive-colors]
+
+The default is Adaptive, but I have mine set to Natural.
+
 ## Home Screen
 
 ## Lock Screen
@@ -85,3 +107,6 @@ The rear fingerprint sensor isn't all good news though. I will say that it's har
 [usb-adapter]: /images/reviews/pixel3/usb-adapter.jpg
 [iphone-6s]: /images/reviews/pixel3/iphone-6s.jpg
 [pixel-3-back]: /images/reviews/pixel3/pixel-3-back.jpg
+[natural-colors]: /images/reviews/pixel3/natural-colors.png
+[boosted-colors]: /images/reviews/pixel3/boosted-colors.png
+[adaptive-colors]: /images/reviews/pixel3/adaptive-colors.png
