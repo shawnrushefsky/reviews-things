@@ -2,7 +2,7 @@
 title: "Building and Deploying Static Sites with Hugo, Circle CI, and Google Cloud Storage"
 date: 2018-11-11T12:35:18-06:00
 draft: false
-tags: ['Static Sites', 'CI-CD', 'Circle CI', 'Cloud', 'Google Cloud Storage', 'Markdown', 'Hugo', 'GitHub', 'Tutorial']
+tags: ['Static Sites', 'CI-CD', 'Circle CI', 'Cloud', 'Google Cloud Storage', 'Markdown', 'Hugo', 'GitHub', 'Tutorial', 'Google']
 comments: true
 ---
 
