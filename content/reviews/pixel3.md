@@ -4,6 +4,7 @@ date: 2018-11-11T14:38:37-06:00
 draft: true
 comments: true
 tags: ['Gadgets', 'Phones', 'Google', 'Smartphone', 'AI', 'Android', 'Pixel3']
+toc: true
 ---
 
 ## TL;DR
@@ -106,7 +107,7 @@ The device is fast and responsive, and gets identical wifi performance to my lap
 
 ## Display
 
-The display is a 5.5 in (140 mm) FHD+ OLED at 443 ppi (2160x1080), and it's really gorgeous. The image appears to sit right on the surface of the screen, not behind a thick pane of glass. The colors are vivid, and images and videos look sharp.
+The display is a 5.5 in (140 mm) FHD+ OLED at 443 ppi (2160x1080), and it's really gorgeous. The image appears to sit right on the surface of the screen, not behind a thick pane of glass. The colors are vivid, and images, videos, and text look clear and sharp.
 
 It supports 3 different color profiles:
 
@@ -126,9 +127,18 @@ The default is Adaptive, but I have mine set to Natural.
 
 ## Home Screen
 
+* widgets
+* at a glance
+
 ## Lock Screen
 
+* at a glance
+* notifications
+
 ## Keyboard
+
+* tactile feedback
+* numeral placement
 
 ## Camera
 
@@ -136,15 +146,36 @@ The default is Adaptive, but I have mine set to Natural.
 
 ### Rear-Facing Camera
 
+### Night Sight
+
 ## Google Photos
+
+* great sharing
+* great search
+* neat proactive assistant integrations
 
 ## Speakers
 
+* still sounds like a phone
+
 ## Google Assistant
+
+* Occassional Failures
+* Made restaurant reservation
+* shared grocery list
 
 ## Battery Life
 
+* bad on the first day
+* pretty good otherwise (check for actual numbers)
+* pixel stand on desk helps
+
 ## Misc
+
+* multiple timers
+* weather app
+* case
+* pixel stand
 
 [usb-adapter]: /images/reviews/pixel3/usb-adapter.jpg
 [iphone-6s]: /images/reviews/pixel3/iphone-6s.jpg

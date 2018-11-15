@@ -47,6 +47,11 @@
                         <img class="featured-image img-fluid" src="{{ . | urlize | relURL }}" alt="thumbnail for this post">
                     {{end}}
                     <!-- End Featured Image -->
+
+                    {{ if .Params.toc }}
+                    <h2>Table of Contents</h2>
+                    {{ .TableOfContents }}
+                    {{ end }}
                     
                     <!-- Post Content -->
                     <div class="article-post">
