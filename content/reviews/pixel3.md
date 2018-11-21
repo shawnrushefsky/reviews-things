@@ -23,37 +23,37 @@ toc: true
 * Storage: 64GB or 128GB (I have the 64gb)
 * Battery: 2915 mAh
 * Display:
-    * Size: 5.5 in (140 mm)
-    * Tech: FHD+ OLED
-    * Resolution: 2160x1080 (443 [ppi](https://en.wikipedia.org/wiki/Pixel_density))
-    * Brightness: 424 [nits](https://en.wikipedia.org/wiki/Candela_per_square_metre)
-    * Glass: [Corning Gorilla Glass 5](https://en.wikipedia.org/wiki/Gorilla_Glass)
+  * Size: 5.5 in (140 mm)
+  * Tech: FHD+ OLED
+  * Resolution: 2160x1080 (443 [ppi](https://en.wikipedia.org/wiki/Pixel_density))
+  * Brightness: 424 [nits](https://en.wikipedia.org/wiki/Candela_per_square_metre)
+  * Glass: [Corning Gorilla Glass 5](https://en.wikipedia.org/wiki/Gorilla_Glass)
 * Rear Camera
-    * Resolution: 12.2 MP
-    * Pixel Size: 1.4 μm
-    * F-Stop: f/1.8
-    * 1080p video at 30/60/120 fps
-    * 720p video at 30/60/240 fps
-    * 4K video at 30 fps
-    * IR laser-assisted autofocus
-    * Optical and electronic image stabilization
+  * Resolution: 12.2 MP
+  * Pixel Size: 1.4 μm
+  * F-Stop: f/1.8
+  * 1080p video at 30/60/120 fps
+  * 720p video at 30/60/240 fps
+  * 4K video at 30 fps
+  * IR laser-assisted autofocus
+  * Optical and electronic image stabilization
 * Front Camera, Lens 1
-    * Resolution: 8 MP
-    * F-Stop: f/1.8
-    * 75º Lens
-    * 1080p/720p/480p video at 30 fps
+  * Resolution: 8 MP
+  * F-Stop: f/1.8
+  * 75º Lens
+  * 1080p/720p/480p video at 30 fps
 * Front Camera, Lens 2
-    * Resolution: 8mp
-    * F-Stop: f/2.2
-    * 97º Wide Angle lens
-    * 1080p/720p/480p video at 30 fps
+  * Resolution: 8mp
+  * F-Stop: f/2.2
+  * 97º Wide Angle lens
+  * 1080p/720p/480p video at 30 fps
 * Connectivity
-    * Bluetooth 5.0 + LE w/ AptX HD
-    * Wi-Fi 2.4GHz + 5.0GHz 802.11a/b/g/n/ac
-    * NFC
-    * GPS ([GLONASS](https://en.wikipedia.org/wiki/GLONASS), [Galileo](https://en.wikipedia.org/wiki/Galileo_(satellite_navigation)), [BeiDou](https://en.wikipedia.org/wiki/BeiDou_Navigation_Satellite_System))
-    * USB-C for Power and Data
-    * [Qi](https://en.wikipedia.org/wiki/Qi_(standard)) wireless charging
+  * Bluetooth 5.0 + LE w/ AptX HD
+  * Wi-Fi 2.4GHz + 5.0GHz 802.11a/b/g/n/ac
+  * NFC
+  * GPS ([GLONASS](https://en.wikipedia.org/wiki/GLONASS), [Galileo](https://en.wikipedia.org/wiki/Galileo_(satellite_navigation)), [BeiDou](https://en.wikipedia.org/wiki/BeiDou_Navigation_Satellite_System))
+  * USB-C for Power and Data
+  * [Qi](https://en.wikipedia.org/wiki/Qi_(standard)) wireless charging
 * [IP68](https://en.wikipedia.org/wiki/IP_Code) IEC standard 60529 (splash, water, and dust resistant)
 
 ## Preface
@@ -127,26 +127,63 @@ The default is Adaptive, but I have mine set to Natural.
 
 ## Home Screen
 
-* widgets
-* at a glance
+![Homescreen, with my calanders obscured][homescreen-full]
+
+If you're coming from iOS, the homescreen experience is fairly different, and in my opinion better.
+
+!["At a Glance" features][homescreen-top]
+
+Starting from the top, we've got the time, date, day of the week, and weather all visible all the time, along with information about connections, volume, battery life, etc.
+
+![Widget space][homescreen-widgets]
+
+Next, theres an area you can arrange app icons, folders, or widgets. I have my personal google calendar and my work outlook calendar here, and it's really nice to have my upcoming events available at a glance like that, as a 0-step interaction.
+
+![Icons and Search][homescreen-bottom]
+
+I like the circular icons better than rounded squares in iOS, but that's certainly just a personal preference. What I really like is having a search bar right on the home screen. It searches your phone locally, as well as serving as a general purpose google search bar, similar to the spotlight search in iOS accessed by pulling down on the home screen. However, I really feel that search deserves to be a first class citizen in your mobile OS, so the approach of putting the search bar directly on the home screen is better to me. The little bubble icon on the right side of that search bar summons the assistant, as does holding the software home button below.
+
+![Switch tasks, suggested apps][homescreen-quick-pull]
+
+If you pull up from the bottom of the phone, you'll see this interface, which allows you to switch between apps, use the search bar, or open one of 5 suggested apps. These apps appear to be suggested based on a variety of contextual factors, and what I need is frequently present here.
+
+![All apps][all-apps]
+
+If you pull up again from the app-switching screen, you'll see a scrollable list of all apps you have installed, along with some additional intelligent suggestions.
+
+You'll notice that the home button is present in all of these interfaces, along with the back button. These things will be present in everything except full screen videos or games. Even though it's a software home button, it does still provide a tactile clicky feedback when you press it.
 
 ## Lock Screen
 
-* at a glance
-* notifications
+![Lock Screen][lock-screen]
+
+The lock screen retains the "at a glance" features of the home screen, which I really like, especially the date and weather info. You can have the lock screen background match your wallpaper, like I have done, but it's not required. The phone unlocks either by pulling up on the screen and entering your PIN, or touching the fingerprint sensor on the back.
 
 ## Keyboard
 
-* tactile feedback
-* numeral placement
+The keyboard is pretty good for a smartphone keyboard. It provides tactile feedback when you type, which I like, but you can disable if you don't. 
+
+For password fields, it provides a number row on top of the regular keyboard so that you don't have to switch back and forth between alphabet and numerical keyboards so frequently while typing in complex passwords. Thankfully, it will save your passwords in chrome's password manager for you, so you only have to type these passwords in once. Still, it definitely improves the password typing experience.
+
+For other text fields, such as in messages, numbers share a key with the top row. You can access them by holding the appropriate key instead of tapping it. I like this approach better than the iOS approach of having the switch to the numbers keyboard everytime you need a number.
 
 ## Camera
 
+Both the rear-facing and front-facing cameras on this phone are very good. I am consistently impressed with the quality of photos taken, and the types of photo available to take.
+
 ### Selfie Camera
+
+![My friend Alli and me at Seminole Canyon State Park][selfie]
+
+The big new thing on the front-facing camera for the Pixel 3 is that it uses 2 lenses to provide a feature that lets you "zoom out" on your selfies. When this feature was announced, I really did not care at all, because I have never been a big selfie taker. However, I find myself using this feature almost every day. It dramatically improves the experience of taking selfies, because you can fit more people in them in more easily, and you can include impressive scenery in your shots, without requiring the use of a selfie-stick.
 
 ### Rear-Facing Camera
 
+### Portrait Mode
+
 ### Night Sight
+
+### Spherical Photos
 
 ## Google Photos
 
@@ -176,6 +213,7 @@ The default is Adaptive, but I have mine set to Natural.
 * weather app
 * case
 * pixel stand
+* daydream vr
 
 [usb-adapter]: /images/reviews/pixel3/usb-adapter.jpg
 [iphone-6s]: /images/reviews/pixel3/iphone-6s.jpg
@@ -183,3 +221,11 @@ The default is Adaptive, but I have mine set to Natural.
 [natural-colors]: /images/reviews/pixel3/natural-colors.png
 [boosted-colors]: /images/reviews/pixel3/boosted-colors.png
 [adaptive-colors]: /images/reviews/pixel3/adaptive-colors.png
+[homescreen-full]: /images/reviews/pixel3/homescreen.png
+[homescreen-top]: /images/reviews/pixel3/homescreen-top.png
+[homescreen-widgets]: /images/reviews/pixel3/homescreen-widgets.png
+[homescreen-bottom]: /images/reviews/pixel3/homescreen-bottom.png
+[homescreen-quick-pull]: /images/reviews/pixel3/homescreen-pull-up-1.png
+[all-apps]: /images/reviews/pixel3/all-apps.png
+[lock-screen]: /images/reviews/pixel3/lock-screen.png
+[selfie]: /images/reviews/pixel3/selfie-me-and-alli.jpg
